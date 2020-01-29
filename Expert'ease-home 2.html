@@ -1,0 +1,400 @@
+<!DOCTYPE html> 
+<html lang="en">
+	
+<!-- doccure/search.html  30 Nov 2019 04:12:16 GMT -->
+<head>
+		<meta charset="utf-8">
+		<title>Expert'ease</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="assets/img/favicon.png" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+		
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+		
+		<!-- Fancybox CSS -->
+		<link rel="stylesheet" href="assets/plugins/fancybox/jquery.fancybox.min.css">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="assets/css/style.css">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	<!-- <script src="company-job-offer.js"></script> -->
+	<!-- <script src="expert-job-offer.js"></script> -->
+	<script src="expertease.js"></script>
+	</head>
+	<body onload="spechome();publication();specialitiesFilter()" >
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- Header -->
+			<header class="header">
+				<nav class="navbar navbar-expand-lg header-nav">
+					<div class="navbar-header">
+						<a id="mobile_btn" href="javascript:void(0);">
+							<span class="bar-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</a>
+						<a href="index-2.html" class="navbar-brand logo">
+							<h4>Expert'ease</h4>
+						</a>
+					</div>
+					<div class="main-menu-wrapper">
+						<div class="menu-header">
+							
+						</div>
+						<ul class="main-nav">
+							
+							
+							
+							
+						</ul>
+					</div>		 
+					<ul class="nav header-navbar-rht">
+						<li class="nav-item">
+							<a class="nav-link header-login" href="Expert Profile.html">My Profile </a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<!-- /Header -->
+			
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-8 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb"></ol>
+							</nav>
+							<h2 class="breadcrumb-title">Home</h2>
+						</div>
+						<div class="col-md-4 col-12 d-md-block d-none">
+							<div class="sort-by">
+								<div class="search-box mt-3">
+									<form >
+									
+										<div class="form-group search-info">
+											<input type="text" class="form-control" placeholder="Search Experts" id="searchexpert" onkeyup="mySearch()">
+										</div>
+									
+										
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+			
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+						
+							<!-- Search Filter -->
+							<div class="card search-filter">
+								<div class="card-header">
+									<h4 class="card-title mb-0">Search Filter</h4>
+								</div>
+								<div class="card-body">
+								<div class="filter-widget">
+									<!-- <div class="cal-icon">
+										<input type="text" class="form-control datetimepicker" placeholder="Select Date">
+									</div>			 -->
+								</div>
+								<!-- <div class="filter-widget">
+									<h4>Gender</h4>
+									<div>
+										<label class="custom_check">
+											<input type="checkbox" name="gender_type" checked>
+											<span class="checkmark"></span> Male Doctor
+										</label>
+									</div>
+									<div>
+										<label class="custom_check">
+											<input type="checkbox" name="gender_type">
+											<span class="checkmark"></span> Female Doctor
+										</label>
+									</div>
+								</div> -->
+								<div class="filter-widget" id="filter">
+									<h4>Select Specialist</h4>
+									<div>
+										
+									</div>
+									<div>
+										
+									</div>
+									<div>
+										
+									</div>
+									<div>
+										
+									</div>
+									<div>
+									
+									</div>
+									<div>
+										
+									</div>
+								</div>
+									<div class="btn-search">
+										
+									</div>	
+								</div>
+							</div>
+							<!-- /Search Filter -->
+							
+						</div>
+						
+						<div class="col-md-12 col-lg-8 col-xl-9" >
+
+							<!-- Doctor Widget -->
+							 <div class="card" id="display">
+								
+	
+											</div>
+										</div>
+										<div class="doc-info-right">
+											<div class="clini-infos">
+											
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<input type="text" id="indice" class="form-control" placeholder="eg. IT, Inc." hidden>
+							<form action="#" class="p-5 bg-white" id="jobform" hidden>
+
+								<div class="row form-group mb-5">
+									<div class="col-md-12 mb-3 mb-md-0">
+										<label class="font-weight-bold" for="fullname">Expert's name</label>
+										<input type="text" id="expert" class="form-control"
+											placeholder="eg. Facebook, Inc.">
+									</div>
+								</div>
+								<div class="row form-group">
+									<div class="col-md-12 mb-3 mb-md-0">
+										<label class="font-weight-bold" for="fullname">Job Title</label>
+										<input type="text" id="Jobtittle" class="form-control"
+											placeholder="eg. Full Stack Frontend">
+									</div>
+								</div>
+								<div class="row form-group mb-5">
+									<div class="col-md-12 mb-3 mb-md-0">
+										<label class="font-weight-bold" for="fullname">Specialities</label>
+										<input type="text" id="specialities" class="form-control"
+											placeholder="eg. IT, Inc.">
+									</div>
+								</div>
+						
+						
+								<div>
+									<!-- <select id="jobtype" class="form ui selection dropdown font-weight-bold">
+										<option value="none">
+											<h1>Job Type</h1>
+										</option>
+										<option value="Full Time">
+											<h6>Full Time</h6>
+											</optionid>
+										<option value="Part Time">
+											<h6>Part Time</h6>
+										</option>
+										<option value="Freelance">
+											<h6>Freelance</h6>
+										</option>
+										<option value="Intership">
+											<h6>Intership</h6>
+										</option>
+										<option value="Temporary">
+											<h6>Temprorary</h6>
+										</option>
+									</select> -->
+								<!-- </div><br> <br> -->
+								<div class="row form-group">
+									<div class="col-md-12 mb-3 mb-md-0">
+										<!-- <label class="font-weight-bold" for="fullname">Price</label>
+										<input type="text" id="option-price-2" class="form-control"
+											placeholder="100$/day"> -->
+									</div>
+								</div>
+								<div class="row form-group mb-4">
+									<div class="col-md-12 font-weight-bold">
+										<h3>Location</h3>
+									</div>
+									<div class="col-md-12 mb-3 mb-md-0">
+										<input id="location" type="text" class="form-control"
+											placeholder="New York City">
+									</div>
+								</div>
+						
+								<div class="row form-group">
+									<div class="col-md-12 font-weight-bold">
+										<h3>Job Description</h3>
+									</div>
+									<div class="col-md-12 mb-3 mb-md-0">
+										<textarea name="" class="form-control" id="jobdescription" cols="30" rows="5"></textarea>
+									</div>
+								</div>
+						
+								<div class="row form-group">
+									<div class="col-md-12">
+										<input onclick="qualifJob()" type="submit" value="done"
+											class="btn btn-primary  py-2 px-5">
+											<input onclick="actualiser()" type="submit" value="Clear"
+											class="btn btn-secondary  py-2 px-5">
+									</div>
+								</div>
+						
+						
+							</form>
+							<form action="#" class="p-5 bg-white">
+											
+								<div class="row form-group">
+									<div class="col-md-12 mb-3 mb-md-0">
+									  <label class="font-weight-bold" for="fullname">Price</label>
+									  <input type="text" id="PRICE" class="form-control" placeholder="100$/day">
+									</div>
+								  </div>
+				  
+								<div class="row form-group">
+								  <div class="col-md-12 mb-3 mb-md-0">
+									<label class="font-weight-bold" for="fullname">Job Title</label>
+									<input type="text" id="TITTLE" class="form-control" placeholder="eg. Full Stack Frontend">
+								  </div>
+								</div>
+				  
+								<div class="row form-group mb-5">
+								  <div class="col-md-12 mb-3 mb-md-0">
+									<label class="font-weight-bold" for="fullname">Company</label>
+									<input type="text" id="COMPANY" class="form-control" placeholder="eg. Facebook, Inc.">
+								  </div>
+								</div>
+								<div class="row form-group mb-5">
+									<div class="col-md-12 mb-3 mb-md-0">
+									  <label class="font-weight-bold" for="fullname">Specialities</label>
+									  <input type="text" id="SPECIALITIES" class="form-control" placeholder="eg. IT, Inc.">
+									</div>
+								  </div>
+								  <div>
+									<select id="type"class="form ui selection dropdown font-weight-bold">
+										<option value="none" ><h1>Job Type</h1></option>
+										<option value="Full Time"><h6>Full Time</h6></optionid>
+										<option  value="Part Time"><h6>Part Time</h6></option>
+										<option  value="Freelance"><h6>Freelance</h6></option>
+										<option value="Intership"><h6>Intership</h6></option>
+										<option  value="Temporary"><h6>Temprorary</h6></option>
+									  </select>
+									</div><br> <br>
+								<div class="row form-group mb-4">
+								  <div class="col-md-12 font-weight-bold"><h3>Location</h3></div>
+								  <div class="col-md-12 mb-3 mb-md-0">
+									<input id="LOCATION" type="text" class="form-control" placeholder="New York City">
+								  </div>
+								</div>
+								<div class="row form-group mb-4">
+									<!-- <div class="col-md-12 font-weight-bold"><h3>Image</h3></div> -->
+									<div class="col-md-12 mb-3 mb-md-0">
+					
+									  <!-- <input id="image" type="file" name="myFile"class="form-control"> -->
+									 
+									</div>
+									
+								  </div>
+				  
+								<div class="row form-group">
+								  <div class="col-md-12 font-weight-bold"><h3>Job Description</h3></div>
+								  <div class="col-md-12 mb-3 mb-md-0">
+									<textarea name="" class="form-control" id="DESCRIPTION" cols="30" rows="5"></textarea>
+								  </div>
+								</div>
+				  
+								<div class="row form-group">
+								  <div class="col-md-12">
+									<input onclick="sendJob()" type="button" value="send" class="btn btn-primary  py-2 px-5">
+								  </div>
+								</div>
+				  
+					
+							  </form>
+							<!-- /Doctor Widget -->
+											</div>
+										</div>
+									
+									</div>
+								</div>
+							</div>
+						
+							
+									
+									</div>
+								</div>
+							</div>
+							
+
+								
+						</div>
+					</div>
+
+				</div>
+
+			</div>		
+			<!-- /Page Content -->
+   
+		
+
+		</div>
+		<!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script src="assets/js/jquery.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- Sticky Sidebar JS -->
+        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
+        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
+		
+		<!-- Select2 JS -->
+		<script src="assets/plugins/select2/js/select2.min.js"></script>
+		
+		<!-- Datetimepicker JS -->
+		<script src="assets/js/moment.min.js"></script>
+		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+		
+		<!-- Fancybox JS -->
+		<script src="assets/plugins/fancybox/jquery.fancybox.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/script.js"></script>
+		
+	</body>
+
+<!-- doccure/search.html  30 Nov 2019 04:12:16 GMT -->
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html> 
+<html lang="en">
+	
+<!-- doccure/doctor-profile.html  30 Nov 2019 04:12:16 GMT -->
+<head>
+		<meta charset="utf-8">
+		<title>Expert'ease</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+		
+		<!-- Favicons -->
+		<link href="assets/img/favicon.png" rel="icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		<!-- <link rel="stylesheet" href="<i class="fa fa-newspaper-o" aria-hidden="true"></i> -->
+		
+		
+		<!-- Fancybox CSS -->
+		<link rel="stylesheet" href="assets/plugins/fancybox/jquery.fancybox.min.css">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="assets/css/style.css">
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body onload="load();displayRequest();AdRe();displayJob();profileLoading();editspeciality() " >
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+		
+			<!-- Header -->
+			<header class="header">
+				<nav class="navbar navbar-expand-lg header-nav">
+					<div class="navbar-header">
+						<a id="mobile_btn" href="javascript:void(0);">
+							<span class="bar-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</a>
+						<a href="index-2.html" class="navbar-brand logo">
+							<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+						</a>
+					</div>
+					<div class="main-menu-wrapper">
+						<div class="menu-header">
+							<a href="index-2.html" class="menu-logo">
+								<img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+							</a>
+							<a id="menu_close" class="menu-close" href="javascript:void(0);">
+								<i class="fas fa-times"></i>
+							</a>
+						</div>
+						<ul class="main-nav">
+							<li>
+								<a href="Expert'ease-home.html">Home</a>
+							</li>
+			
+								<li>
+									<a href="Search.html">Search</a>
+								</li>
+								
+
+						</ul>	 
+					</div>		 
+					<ul class="nav header-navbar-rht">
+					<!-- User Menu -->
+					<li class="nav-item dropdown has-arrow logged-item">
+						<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+							<span class="user-img">
+								<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder" id="roundedAvatar">
+							</span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<div class="user-header">
+								<div class="avatar avatar-sm">
+									<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle" id="menuAvatar">
+								</div>
+								<div class="user-text">
+									<h6>Darren Elder</h6>
+						
+								</div>
+							</div>
+							<a class="dropdown-item" href="Company Profile.html">Profile</a>
+							<a class="dropdown-item" href="http://127.0.0.1:5500/companyProfileEdit.html">Profile Settings</a>
+							<a class="dropdown-item" href="login.html" onclick="logOut()">Logout</a>
+						</div>
+					</li>
+					<!-- /User Menu -->
+						
+					</ul>
+				</nav>
+			</header>
+			<!-- /Header -->
+			
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Company</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Company Profile</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+			
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container">
+
+					<!-- Doctor Widget -->
+					<div class="card" id="comprof">
+						<div class="card-body">
+							<div class="doctor-widget">
+								<div class="doc-info-left">
+									<div class="doctor-img">
+										<img src="" class="img-fluid" alt="User Image" id="leftAvatar">
+									</div>
+									<div class="doc-info-cont">
+										<h4 class="doc-name" id="topName"></h4>
+										
+										
+										<div class="clinic-details">
+											<p class="doc-location" id="location"><i class="fas fa-map-marker-alt"></i> Tunis , Lac2 </p>
+											<ul class="clinic-gallery">
+												<li>
+													<a href="" data-fancybox="gallery" id="zoom" onclick="fresh()">
+														<img src="" alt="Feature" id="store">
+													</a>
+												</li>
+											</ul>
+										</div>
+										
+									</div>
+								</div>
+								<div class="doc-info-right">
+									<div class="clini-infos">
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Doctor Widget -->
+					
+					<!-- Doctor Details Tab -->
+					<div class="card">
+						<div class="card-body pt-0">
+						
+							<!-- Tab Menu -->
+							<nav class="user-tabs mb-4">
+								<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+									<li class="nav-item">
+										<a class="nav-link active" href="#doc_overview" data-toggle="tab">career</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_locations" data-toggle="tab" onclick="displayJob()">job offers</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#doc_reviews" data-toggle="tab" >job requests</a>
+									</li>
+								</ul>
+							</nav>
+							<!-- /Tab Menu -->
+							
+							<!-- Tab Content -->
+							<div class="tab-content pt-0">
+							
+								<!-- Overview Content -->
+								<div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
+									<div class="row">
+										<div class="col-md-12 col-lg-9">
+										
+											<!-- About Details -->
+											<div class="widget about-widget">
+												<h4 class="widget-title">About Me</h4>
+												<p id="about"></p>
+											</div>
+											<!-- /About Details -->																	
+
+											<!-- Awards Details -->
+											<div class="widget awards-widget">
+												<h4 class="widget-title">Awards</h4>
+												<div class="experience-box">
+													<ul class="experience-list">
+														<li>
+															<div class="experience-user">
+																<div class="before-circle"></div>
+															</div>
+															<div class="experience-content">
+																<div class="timeline-content">
+																	<p class="exp-year" id="year"></p>
+																	<p id="award"></p>
+																</div>
+															</div>
+														</li>
+			
+													</ul>
+												</div>
+											</div>
+											<!-- /Awards Details -->
+																			
+										</div>
+									</div>
+								</div>
+								<!-- /Overview Content -->
+								
+								<!-- Locations Content -->
+								<div role="tabpanel" id="doc_locations" class="tab-pane fade">
+									
+									<!-- Location List -->
+									<div class="location-list"id="job">
+										<div class="row">
+											<div class="col-md-6" >
+													<div class="text-right">
+														<a class="add-new-btn">Post job offer</a>
+													</div>
+													
+												<div class="clinic-content">
+													<h4 class="clinic-name"><a></a></h4>
+													<p class="doc-speciality"></p>
+													<div class="rating">
+														
+														
+													</div>
+													<div class="clinic-details mb-0">
+														<h5 class="clinic-direction"> <i class="fas fa-map-marker-alt"></i> <br></h5>
+														<ul>
+															<li>
+																<a href="assets/img/features/feature-01.jpg" data-fancybox="gallery2">
+																	<img src="assets/img/features/feature-01.jpg" alt="Feature Image">
+																</a>
+															</li>
+															<li>
+																<a href="assets/img/features/feature-02.jpg" data-fancybox="gallery2">
+																	<img src="assets/img/features/feature-02.jpg" alt="Feature Image">
+																</a>
+															</li>
+															<li>
+																<a href="assets/img/features/feature-03.jpg" data-fancybox="gallery2">
+																	<img src="assets/img/features/feature-03.jpg" alt="Feature Image">
+																</a>
+															</li>
+															<li>
+																<a href="assets/img/features/feature-04.jpg" data-fancybox="gallery2">
+																	<img src="assets/img/features/feature-04.jpg" alt="Feature Image">
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-md-4" id="type">
+												<div class="clinic-timing">
+													<div>
+														<p class="timings-days">
+															<span></span>
+														</p>
+														<p class="timings-times">
+															<span></span>
+															<span></span>
+														</p>
+													</div>
+												
+												</div>
+											</div>
+									
+											
+											<div class="col-md-2">
+												<div class="consult-price">
+													
+													<button type="button" class="btn btn-outline-primary" onclick="editJob()">Edit</button>
+													<button type="button" class="btn btn-outline-primary" onclick="deleteJob()">Delete</button>
+										
+												</div>
+											</div>
+										</div>
+									</div>
+									<form action="#" class="p-5 bg-white" id="editform">
+											
+										<div class="row form-group">
+											<div class="col-md-12 mb-3 mb-md-0">
+												
+											  <label class="font-weight-bold" for="fullname">Price</label>
+											  <input type="text" id="option-price-2" class="form-control" placeholder="100$/day">
+											</div>
+										  </div>
+						  
+										<div class="row form-group">
+										  <div class="col-md-12 mb-3 mb-md-0">
+											<label class="font-weight-bold" for="fullname">Job Title</label>
+											<input type="text" id="Jobtittle" class="form-control" placeholder="eg. Full Stack Frontend">
+										  </div>
+										</div>
+						  
+										<div class="row form-group mb-5">
+										  <div class="col-md-12 mb-3 mb-md-0">
+											<label class="font-weight-bold" for="fullname">Company</label>
+											<input type="text" id="company" class="form-control" placeholder="eg. Facebook, Inc.">
+										  </div>
+										</div>
+										<div class="row form-group mb-5">
+											<div class="col-md-12 mb-3 mb-md-0">
+											  <label class="font-weight-bold" for="fullname">Specialities</label>
+											  <input type="text" id="speciality" class="form-control" placeholder="eg. IT, Inc.">
+											  <input type="text" id="indice" class="form-control" placeholder="eg. IT, Inc." hidden>
+
+											  
+											</div>
+										  </div>
+										   <!-- <div>
+
+										   <select id="speciality"class="form ui selection dropdown font-weight-bold">
+												<option value="none" ><h1>Specialities</h1></option>
+												<option value="Full Time"><h6>Full Time</h6></optionid>
+												<option  value="Part Time"><h6>Part Time</h6></option>
+												<option  value="Freelance"><h6>Freelance</h6></option>
+												<option value="Intership"><h6>Intership</h6></option>
+												<option  value="Temporary"><h6>Temprorary</h6></option>
+											  </select>
+											</div><br> <br> -->
+										  <div> 
+											<select id="jobtype"class="form ui selection dropdown font-weight-bold">
+												<option value="none" ><h1>Job Type</h1></option>
+												<option value="Full Time"><h6>Full Time</h6></optionid>
+												<option  value="Part Time"><h6>Part Time</h6></option>
+												<option  value="Freelance"><h6>Freelance</h6></option>
+												<option value="Intership"><h6>Intership</h6></option>
+												<option  value="Temporary"><h6>Temprorary</h6></option>
+											  </select>
+											</div><br> <br>
+										<div class="row form-group mb-4">
+										  <div class="col-md-12 font-weight-bold"><h3>Location</h3></div>
+										  <div class="col-md-12 mb-3 mb-md-0">
+											<input id="location" type="text" class="form-control" placeholder="New York City">
+										  </div>
+										</div>
+						  
+										<div class="row form-group">
+										  <div class="col-md-12 font-weight-bold"><h3>Job Description</h3></div>
+										  <div class="col-md-12 mb-3 mb-md-0">
+											<textarea name="" class="form-control" id="jobdescription" cols="30" rows="5"></textarea>
+										  </div>
+										</div>
+						  
+										<div class="row form-group">
+										  <div class="col-md-12">
+											<input onclick="APPLY()" type="submit" value="Apply" class="btn btn-primary  py-2 px-5">
+										  </div>
+										</div>
+						  
+							
+									  </form>
+									<!-- /Location List -->
+									
+								 
+									<!-- /Location List -->
+
+								</div>
+								<!-- /Locations Content -->
+								
+								<!-- Reviews Content -->
+								<div role="tabpanel" id="doc_reviews" class="tab-pane fade">
+								
+									<!-- Review Listing -->
+									<div class="widget review-listing" id="request">
+									
+												
+												
+					
+													</div>
+												</div>
+												
+												
+												
+											</li>
+											
+											
+									
+										
+									</div>
+								
+								
+								
+										
+									</div>
+						
+						
+								</div>
+					
+								
+								<!-- Business Hours Content -->
+								<div role="tabpanel" id="doc_business_hours" class="tab-pane fade">
+									<div class="row">
+										<div class="col-md-6 offset-md-3">
+										
+										
+									
+										</div>
+									</div>
+								</div>
+								<!-- /Business Hours Content -->
+								
+							</div>
+						</div>
+					</div>
+					<!-- /Doctor Details Tab -->
+
+				</div>
+			</div>		
+			<!-- /Page Content -->
+   
+			
+		   
+		</div>
+		<!-- /Main Wrapper -->
+		
+		
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Voice Call Modal -->
+		
+	
+		
+		<!-- jQuery -->
+		<script src="assets/js/jquery.min.js"></script>
+		
+		<!-- Bootstrap Core JS -->
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		
+		
+		<!-- Fancybox JS -->
+		<script src="assets/plugins/fancybox/jquery.fancybox.min.js"></script>
+		<script src="expertease.js"></script>
+		  <script src="companyProfile.js"></script>
+
+		
+		
+		
+		
+	</body>
+
+<!-- doccure/doctor-profile.html  30 Nov 2019 04:12:16 GMT -->
+</html>
