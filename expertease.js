@@ -1,4 +1,3 @@
-
 var img = "";
 
 function openFile(event) {
@@ -34,8 +33,8 @@ function vide() {
 }
 // this function is about company add job//
 function AddJob() {
-    let list = JSON.parse(localStorage.getItem('job offer'))||[];
-    let companycn = JSON.parse(localStorage.getItem('connectedCompany')).id||{};
+    let list = JSON.parse(localStorage.getItem('job offer')) || [];
+    let companycn = JSON.parse(localStorage.getItem('connectedCompany')).id || {};
     var object = {
         id: Math.floor(Math.random() * 1000) + 1,
         price: document.getElementById("option-price-2").value,
@@ -47,15 +46,15 @@ function AddJob() {
         image: img,
         description: document.getElementById("jobdescription").value,
         status: "inprogress",
-        owner : companycn
+        owner: companycn
     }
-        
-        
+
+
     if (vide()) {
 
         list.push(object);
         localStorage.setItem('job offer', JSON.stringify(list));
-    
+
         location.href = "http://127.0.0.1:5500/Company%20Profile.html";
     } else {
         alert("champs obligatoire");
@@ -66,7 +65,7 @@ function AddJob() {
 // this function is about company display job//
 function displayJob() {
     let jobOffers = JSON.parse(localStorage.getItem('job offer')) || [];
-    companyCn =JSON.parse(localStorage.getItem('connectedCompany')).id|| {};
+    companyCn = JSON.parse(localStorage.getItem('connectedCompany')).id || {};
 
     let html = `<div class="text-center">
             <a href="http://127.0.0.1:5500/CompanyAdd%20Job%20Offer.html"
@@ -75,10 +74,10 @@ function displayJob() {
                 class=" add-new-btn">post a job offer</a>
         </div>`
     for (let i = 0; i < jobOffers.length; i++) {
-          if(jobOffers[i].owner==companyCn){
+        if (jobOffers[i].owner == companyCn) {
 
 
-        html += `
+            html += `
                 <div class="location-list">
                 <div class="row">
                 <div class="text-right">
@@ -128,14 +127,14 @@ function displayJob() {
 //this function is about company post job// 
 function affichage() {
     let jobOffers = JSON.parse(localStorage.getItem('job offer')) || [];
-    companyCn =JSON.parse(localStorage.getItem('connectedCompany')).id|| {};
-    
+    companyCn = JSON.parse(localStorage.getItem('connectedCompany')).id || {};
+
 
     let html = `<div id="myDiv">`
 
 
     for (let i = 0; i < jobOffers.length; i++) {
-        if ((jobOffers[i].status !=="rejected")&&(jobOffers[i].owner==companyCn)) {
+        if ((jobOffers[i].status !== "rejected") && (jobOffers[i].owner == companyCn)) {
 
 
 
@@ -323,10 +322,10 @@ function searchspec() {
 // this function is about company send job request//
 function sendJob(id) {
     let user = JSON.parse(localStorage.getItem('job offer')) || [];
-    companyCn =JSON.parse(localStorage.getItem('connectedCompany')).id|| {};
+    companyCn = JSON.parse(localStorage.getItem('connectedCompany')).id || {};
 
     for (i = 0; i < user.length; i++) {
-        if (user[i].owner ==companyCn ) {
+        if (user[i].owner == companyCn) {
             document.getElementById("price").value = user[i].price
             document.getElementById("jobtittle").value = user[i].Name
             document.getElementById("jobtype").value = user[i].type
@@ -346,7 +345,7 @@ function sendJob(id) {
 // this function is about display  expert applied//
 function admis(id) {
     admis = JSON.parse(localStorage.getItem('job offer expert')) || [];
-    for (i = 0; i < admis.length+1; i++) {
+    for (i = 0; i < admis.length + 1; i++) {
         console.log(i);
 
 
@@ -470,9 +469,10 @@ function AdRe() {
     }
 
 }
-function logOut(){
-localStorage.removeItem('connectedCompany')
-location.href="http://127.0.0.1:5500/login.html"
+
+function logOut() {
+    localStorage.removeItem('connectedCompany')
+    location.href = "http://127.0.0.1:5500/login.html"
 }
 // this function is about loading buttons//
 
@@ -495,8 +495,8 @@ function none() {
 }
 // this function is about expert post job //
 function postJob() {
-    let list = JSON.parse(localStorage.getItem('job offer expert'))||[];
-    let expertcn = JSON.parse(localStorage.getItem('expertConnected'))||{};
+    let list = JSON.parse(localStorage.getItem('job offer expert')) || [];
+    let expertcn = JSON.parse(localStorage.getItem('expertConnected')) || {};
     if (list == null) {
         list = [];
     }
@@ -511,12 +511,12 @@ function postJob() {
         image: img,
         status: "in progress",
         description: document.getElementById("jobdescription").value,
-        owner : expertcn
+        owner: expertcn
     };
     if (none()) {
         list.push(object);
         localStorage.setItem('job offer expert', JSON.stringify(list));
-    
+
         location.href = "http://127.0.0.1:5500/Expert%20Profile.html";
     } else {
         alert("champs obligatoires!!!")
@@ -540,7 +540,7 @@ function actualiser() {
 // this function is about expert display job//
 function afficheJob() {
     let jobOffers = JSON.parse(localStorage.getItem('job offer expert')) || [];
-    let expertcn = JSON.parse(localStorage.getItem('expertConnected'))||{};
+    let expertcn = JSON.parse(localStorage.getItem('expertConnected')) || {};
 
 
     let html = `<div class="text-right">
@@ -570,9 +570,9 @@ function afficheJob() {
     html += `	<tbody> `
 
     for (let i = 0; i < jobOffers.length; i++) {
-        if((jobOffers[i].owner==expertcn)){
+        if ((jobOffers[i].owner == expertcn)) {
 
-        html += `
+            html += `
                                         <tr>
                                         <td>
                                     
@@ -661,7 +661,7 @@ function publication() {
                                               </div>
                                           </div>
                                           </div>`
-                                        
+
         // }                                               
     }
     html += `</div>`
@@ -876,7 +876,8 @@ function AcRe() {
             document.getElementById("accept-" + id).style.color = "grey";
             document.getElementById("reject-" + id).disabled = true;
             document.getElementById("accept-" + id).disabled = true;
-        } if (AR[i].status == "accepted") {
+        }
+        if (AR[i].status == "accepted") {
             document.getElementById("reject-" + id).style.color = "grey";
             document.getElementById("reject-" + id).disabled = true;
             document.getElementById("accept-" + id).disabled = true;
@@ -922,11 +923,12 @@ function specialities() {
     html += `  </select>
   </div><br> <br>`
     document.getElementById("specialities").innerHTML = html;
-    
-    
-    
+
+
+
 
 }
+
 function specialitiesFilter() {
     console.log(2);
     let speciality = JSON.parse(localStorage.getItem('Spec')) || []
@@ -942,13 +944,14 @@ function specialitiesFilter() {
     }
     html += `  </select>
   </div><br> <br>`
-    
+
     document.getElementById("filter").innerHTML = html;
-    
-    
+
+
 
 }
-function editspeciality(){
+
+function editspeciality() {
     console.log(2);
     let speciality = JSON.parse(localStorage.getItem('Spec')) || []
 
@@ -966,7 +969,7 @@ function editspeciality(){
     document.getElementById("speciality").innerHTML = html;
 
 }
-    //this function is about displaying specialities//
+//this function is about displaying specialities//
 
 
 // ____________________________________________________________________________________________________
@@ -975,58 +978,60 @@ function editspeciality(){
 
 function profile() {
 
-    var userDetails = JSON.parse(localStorage.getItem("expertProfiles")) ||[];
-    var connectedUser = JSON.parse(localStorage.getItem("connectedExpert")).id||{};
-  
+    var userDetails = JSON.parse(localStorage.getItem("expertProfiles")) || [];
+    var connectedUser = JSON.parse(localStorage.getItem("connectedExpert")).id || {};
+
     // console.log(day);
     for (i = 0; i < userDetails.length; i++) {
-        
-    
+
+
         if (userDetails[i].userId == connectedUser) {
-            document.getElementById("dropName").innerHTML = (userDetails[i].firstName)+" "+(userDetails[i].lastName)
-             document.getElementById("dropImg").src = userDetails[i].img; 
-             document.getElementById("dropImg_1").src = userDetails[i].img; 
-             document.getElementById("dropSpecialty").innerHTML = userDetails[i].userSpecialty;
-            
+            document.getElementById("dropName").innerHTML = (userDetails[i].firstName) + " " + (userDetails[i].lastName)
+            document.getElementById("dropImg").src = userDetails[i].img;
+            document.getElementById("dropImg_1").src = userDetails[i].img;
+            document.getElementById("dropSpecialty").innerHTML = userDetails[i].userSpecialty;
+
             document.getElementById("userAvatar").src = userDetails[i].img;
-            document.getElementById("Name").innerHTML= (userDetails[i].firstName) +" "+ (userDetails[i].lastName);
-            document.getElementById("Location").innerHTML=userDetails[i].adress
-            document.getElementById("mobile").innerHTML=userDetails[i].mobile
+            document.getElementById("Name").innerHTML = (userDetails[i].firstName) + " " + (userDetails[i].lastName);
+            document.getElementById("Location").innerHTML = userDetails[i].adress
+            document.getElementById("mobile").innerHTML = userDetails[i].mobile
         }
-   
-  
-        
+
+
+
     }
- 
+
 }
+
 function profilecomp() {
 
-    var userDetails = JSON.parse(localStorage.getItem("companyProfiles")) ||[];
-    var connectedUser = JSON.parse(localStorage.getItem("connectedCompany")).id||{};
-  console.log(userDetails );
-  console.log(connectedUser);
-  
+    var userDetails = JSON.parse(localStorage.getItem("companyProfiles")) || [];
+    var connectedUser = JSON.parse(localStorage.getItem("connectedCompany")).id || {};
+    console.log(userDetails);
+    console.log(connectedUser);
+
     // console.log(day);
     for (i = 0; i < userDetails.length; i++) {
-        
-    
+
+
         if (userDetails[i].companyId == connectedUser) {
-            document.getElementById("dropName").innerHTML=userDetails[i].companyName
-            document.getElementById("dropImg").src=userDetails[i].img
-            document.getElementById("dropImgs").src=userDetails[i].img
+            document.getElementById("dropName").innerHTML = userDetails[i].companyName
+            document.getElementById("dropImg").src = userDetails[i].img
+            document.getElementById("dropImgs").src = userDetails[i].img
 
             document.getElementById("userAvatar").src = userDetails[i].img;
-            document.getElementById("Name").innerHTML= (userDetails[i].companyName)
-            document.getElementById("Location").innerHTML=userDetails[i].adress
-            document.getElementById("mobile").innerHTML=userDetails[i].mobile
+            document.getElementById("Name").innerHTML = (userDetails[i].companyName)
+            document.getElementById("Location").innerHTML = userDetails[i].adress
+            document.getElementById("mobile").innerHTML = userDetails[i].mobile
         }
-   
-  
-        
+
+
+
     }
- 
+
 }
-function logOut(){
+
+function logOut() {
     localStorage.removeItem('connectedExpert')
     location.replace('http://127.0.0.1:5500/login.html')
 }
