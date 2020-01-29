@@ -60,7 +60,7 @@ function AddJob() {
         alert("champs obligatoire");
     }
 }
-//--/ this function is about company add job//
+//--/ this function is about company add job Mohamed //
 
 // this function is about company display job//
 function displayJob() {
